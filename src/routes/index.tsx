@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Kit Média de MIH - Mon Incroyable Histoire. Programme premium de témoignages : 100K abonnés YouTube, 105K vues / épisode, audience engagée 35-45 ans.",
+          "Kit Média de MIH - Mon Incroyable Histoire. Programme premium de témoignages : 100K abonnés YouTube, 105K vues / épisode, audience engagée 25-35 ans.",
       },
       { name: "robots", content: "noindex, nofollow, noarchive, nosnippet" },
       { name: "googlebot", content: "noindex, nofollow, noarchive, nosnippet" },
@@ -333,8 +333,8 @@ function Performances() {
     { label: "Taux de Clic (CTR)", mih: 5.5, market: 4 },
   ];
   const ecosystemData = [
-    { name: "Hommes (35-45 ans)", value: 55 },
-    { name: "Femmes (35-45 ans)", value: 45 },
+    { name: "Hommes (25-35 ans)", value: 55 },
+    { name: "Femmes (25-35 ans)", value: 45 },
   ];
   const donutColors = ["#08b6c8", "#101827"];
 
@@ -422,8 +422,8 @@ function Performances() {
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-white p-5 text-foreground shadow-xl md:p-6">
-              <h3 className="font-display text-2xl font-bold">Écosystème MIH</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Répartition 35-45 ans.</p>
+              <h3 className="font-display text-2xl font-bold">Cœur de cible</h3>
+              <p className="mt-1 text-sm text-muted-foreground">Répartition 25-35 ans.</p>
               <div className="h-80">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -651,7 +651,7 @@ function Acquisition() {
         <div className="max-w-4xl">
           <SectionTag>Acquisition & Viralité</SectionTag>
           <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-6xl">
-            Un écosystème social qui amplifie chaque épisode.
+            MIH sur toutes les plateformes.
           </h2>
         </div>
 
