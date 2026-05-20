@@ -257,38 +257,24 @@ function Concept() {
           <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-6xl">
             MIH, UN CONCEPT FORT ET ORIGINAL
           </h2>
-          <div className="mt-9 space-y-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
-            <p>
-              <span className="float-left mr-4 font-serif text-6xl font-semibold leading-[0.86] text-primary md:text-7xl">
-                L
-              </span>
-              ancé en avril 2025 sur Youtube, MIH s'est imposé comme un programme de récits
-              immersifs à{" "}
-              <span className="font-semibold text-primary">forte intensité émotionnelle</span>.
-            </p>
-            <p>
-              Chaque épisode repose sur une mécanique simple : laisser une personne raconter, sans
-              interruption artificielle, le moment qui a changé sa vie.
-            </p>
-            <p>
-              Interview réalisée par le journaliste{" "}
-              <span className="font-semibold text-primary">Jean-Charles Doria</span>, réalisateur de
-              documentaires de société diffusés sur de grandes chaînes françaises et
-              internationales.
-            </p>
+          <div className="mt-9 grid gap-4 text-lg leading-relaxed text-muted-foreground md:text-xl">
+            {[
+              "Des formats longs de 40 à 60 minutes",
+              "Des témoignages marquants : connexion émotionnelle avec le public",
+              "Des parcours variés et hors-normes : touche un large public et suscite la curiosité",
+              "Un format adapté aux réseaux : se consomme sur tous les supports",
+            ].map((item, index) => (
+              <div
+                key={item}
+                className="flex gap-4 rounded-2xl border border-border bg-white p-5 shadow-sm"
+              >
+                <span className="font-display text-3xl font-bold leading-none text-primary">
+                  {index + 1}
+                </span>
+                <p>{item}</p>
+              </div>
+            ))}
           </div>
-
-          <div className="my-12 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-
-          <blockquote className="relative mx-auto max-w-6xl text-center font-serif text-2xl italic leading-snug text-foreground md:whitespace-nowrap md:text-3xl">
-            <span className="absolute -left-4 -top-8 text-6xl text-primary/25 md:-left-10 md:text-7xl">
-              “
-            </span>
-            Une audience qui ne scrolle pas. Une audience qui écoute.
-            <span className="absolute -bottom-10 -right-4 text-6xl text-primary/25 md:-right-10 md:text-7xl">
-              ”
-            </span>
-          </blockquote>
         </div>
 
         <div className="mt-16 grid gap-4 md:grid-cols-3">
