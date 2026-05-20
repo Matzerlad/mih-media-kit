@@ -204,24 +204,19 @@ function Propos() {
               <br />
               De la résilience.
             </h2>
-            <p className="mt-8 max-w-md font-serif text-2xl italic leading-snug text-primary md:text-3xl">
-              Chaque semaine, une vie bascule.
-            </p>
           </div>
         </div>
 
         <div className="pt-3 lg:pt-16">
           <div className="space-y-7 border-l border-border pl-6 text-lg leading-relaxed text-muted-foreground md:pl-8 md:text-xl">
             <p>
-              Un survivant. Un ancien voyou. Une victime. Un témoin d'un événement exceptionnel. Ils
-              racontent minute par minute le moment qui a bouleversé leur existence mais surtout
-              comment ils s'en sont relevés.
+              Nos témoins racontent minute par minute le moment qui a bouleversé leur existence et
+              nous embarquent dans un récit captivant et plein d'émotions.
             </p>
             <p>
-              Au-delà du simple fait divers ou de l'anecdote, MIH est un format d'interviews
-              intimistes centré sur des valeurs profondément positives. Des destins hors du commun,
-              des parcours de résilience et des leçons de vie qui inspirent, captivent et fédèrent
-              une communauté en quête de sens et d'authenticité.
+              Ces interviews menées par le journaliste Jean-Charles Doria sont centrées sur des
+              valeurs positives. Des destins hors du commun, des parcours de résilience et des leçons
+              de vie qui inspirent et fédèrent une communauté en quête de sens et d'authenticité.
             </p>
           </div>
         </div>
