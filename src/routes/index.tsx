@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Kit Média de MIH - Mon Incroyable Histoire. Programme premium de témoignages : 100K abonnés YouTube, 105K vues / épisode, audience engagée 25-35 ans.",
+          "Kit Média de MIH - Mon Incroyable Histoire. Programme premium de témoignages : 100K abonnés YouTube, 105K vues / épisode, audience engagée 25-45 ans.",
       },
       { name: "robots", content: "noindex, nofollow, noarchive, nosnippet" },
       { name: "googlebot", content: "noindex, nofollow, noarchive, nosnippet" },
@@ -333,8 +333,8 @@ function Performances() {
     { label: "Taux de Clic (CTR)", mih: 5.5, market: 4 },
   ];
   const ecosystemData = [
-    { name: "Hommes (25-35 ans)", value: 55 },
-    { name: "Femmes (25-35 ans)", value: 45 },
+    { name: "Hommes (25-45 ans)", value: 55 },
+    { name: "Femmes (25-45 ans)", value: 45 },
   ];
   const donutColors = ["#08b6c8", "#101827"];
 
@@ -346,11 +346,8 @@ function Performances() {
             <div>
               <SectionTag>Performances</SectionTag>
               <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-5xl">
-                Des récits qui retiennent l'attention.
+                Des récits qui retiennent l'attention
               </h2>
-              <p className="mt-5 text-white/65">
-                Les chiffres clés, rassemblés en un seul endroit.
-              </p>
             </div>
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/10">
               {stats.map(([value, label]) => (
@@ -423,7 +420,7 @@ function Performances() {
 
             <div className="rounded-2xl border border-white/10 bg-white p-5 text-foreground shadow-xl md:p-6">
               <h3 className="font-display text-2xl font-bold">Cœur de cible</h3>
-              <p className="mt-1 text-sm text-muted-foreground">Répartition 25-35 ans.</p>
+              <p className="mt-1 text-sm text-muted-foreground">Répartition 25-45 ans.</p>
               <div className="h-80">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
