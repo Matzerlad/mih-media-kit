@@ -968,10 +968,10 @@ function Contact() {
                   <div>
                     <div className="text-xs uppercase tracking-wider opacity-70">Commercial</div>
                     <a
-                      href="mailto:commercial@tonycomiti.com"
+                      href="mailto:commercial@monincroyablehistoire.com"
                       className="font-semibold hover:underline"
                     >
-                      commercial@tonycomiti.com
+                      commercial@monincroyablehistoire.com
                     </a>
                     <div className="text-sm opacity-80">L'équipe commerciale MIH</div>
                   </div>
