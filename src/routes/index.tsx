@@ -142,7 +142,7 @@ function Hero() {
             {[
               ["100K", "abonnés"],
               ["105K", "vues / épisode"],
-              ["35%", "rétention moyenne"],
+              ["35%", "taux de rétention"],
               ["40", "épisodes"],
             ].map(([value, label]) => (
               <div key={label}>
