@@ -831,13 +831,18 @@ function Offers() {
     {
       num: "01",
       title: "L'Intégration Premium : Mid-roll intégré",
+      price: "6 000",
+      unit: "€",
       desc: "La marque apparaît au milieu de l'épisode, après une respiration éditoriale.",
       example: "L'invité évoque un usage concret, dans le fil de son histoire.",
       meta: ["Durée : 60-90 secondes MAX", "Placement : mid-roll"],
+      highlight: true,
     },
     {
       num: "02",
       title: "Le Pré-Roll",
+      price: "4 000",
+      unit: "€",
       desc: "Message court au début ou à la fin de la vidéo.",
       example: "« Cette vidéo est soutenue par [Marque]. Allez sur [lien] »",
       meta: ["Durée : 30-60 secondes MAX", "Placement : pré-roll ou post-roll"],
@@ -845,14 +850,17 @@ function Offers() {
     {
       num: "03",
       title: "BUNDLE (Long-Format + Shorts)",
+      price: "8 500",
+      unit: "€",
       desc: "1 présence dans l'épisode + 3 à 4 Shorts TikTok autour du même partenaire.",
       example: "Une même campagne touche YouTube et TikTok sans changer de territoire.",
       meta: ["1 vidéo 60-90 sec", "3-4 Shorts de 15-30 sec"],
-      highlight: true,
     },
     {
       num: "04",
       title: "Le Partenariat de Saison",
+      price: "Sur devis",
+      unit: "",
       desc: "Une présence installée sur plusieurs épisodes, pensée pour la répétition et la confiance.",
       example: "Deux prises de parole séparées, avec une cohérence éditoriale sur la durée.",
       meta: ["Intégrations multiples non consécutives"],
@@ -865,11 +873,8 @@ function Offers() {
         <div className="max-w-3xl">
           <SectionTag>Notre Offre & Tarifs</SectionTag>
           <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-5xl">
-            Des formats pensés pour rester naturels.
+            Notre Offre & Tarifs
           </h2>
-          <p className="mt-6 text-lg text-muted-foreground">
-            Chaque option garde le ton de MIH : sobre, contextualisée, facile à comprendre.
-          </p>
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -893,7 +898,17 @@ function Offers() {
               </h3>
 
               <div className="mt-6">
-                <span className="font-display text-4xl font-bold text-primary">Sur mesure</span>
+                <span className="font-display text-4xl font-bold text-primary">{o.price}</span>
+                {o.unit && (
+                  <span className="ml-1 align-baseline text-2xl font-bold text-primary">
+                    {o.unit}
+                  </span>
+                )}
+                {o.price !== "Sur devis" && (
+                  <span className="ml-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    HT
+                  </span>
+                )}
               </div>
 
               <p className="mt-5 text-sm text-muted-foreground">{o.desc}</p>
