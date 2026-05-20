@@ -659,7 +659,7 @@ function Acquisition() {
           {platforms.map((p, i) => (
             <div
               key={i}
-              className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-white transition hover:-translate-y-1 hover:shadow-xl"
+              className="group flex min-h-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-white transition hover:-translate-y-1 hover:shadow-xl"
             >
               <div className={`flex items-center gap-4 p-5 ${p.color}`}>
                 <img src={p.logo} alt={`Logo ${p.name}`} className="size-10 object-contain" />
@@ -668,10 +668,17 @@ function Acquisition() {
                   <div className="mt-0.5 text-xs opacity-85">{p.handle}</div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-px bg-border">
+              <div
+                className={`grid flex-1 gap-px bg-border ${
+                  p.stats.length === 1 ? "grid-cols-1" : "grid-cols-2"
+                }`}
+              >
                 {p.stats.map((s, j) => (
-                  <div key={j} className="flex min-h-28 flex-col justify-center bg-[#dff8fd] p-5">
-                    <div className="font-display text-6xl font-bold leading-none text-foreground md:text-7xl">
+                  <div
+                    key={j}
+                    className="flex min-h-40 flex-col justify-center bg-[#dff8fd] p-5"
+                  >
+                    <div className="font-display text-6xl font-bold leading-none text-foreground md:text-7xl lg:text-8xl">
                       {s.v}
                     </div>
                     <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
