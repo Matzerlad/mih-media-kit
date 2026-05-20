@@ -706,12 +706,8 @@ function InstagramReels() {
         <div className="max-w-3xl">
           <SectionTag>Reels Instagram</SectionTag>
           <h2 className="mt-4 font-display text-3xl font-bold leading-tight md:text-4xl">
-            Un petit aperçu de l'émission ?
+            Un petit aperçu de l'émission
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-            Cliquez sur "Play" pour découvrir le ton de nos interviews et la force de nos formats
-            courts, directement depuis cette page.
-          </p>
         </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
