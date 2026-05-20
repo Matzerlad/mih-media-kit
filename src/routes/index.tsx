@@ -58,9 +58,17 @@ export const Route = createFileRoute("/")({
 
 /* ---------- Building blocks ---------- */
 
-function SectionTag({ children }: { children: React.ReactNode }) {
+function SectionTag({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary backdrop-blur">
+    <span
+      className={`inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary backdrop-blur ${className}`}
+    >
       <Sparkles className="size-3" />
       {children}
     </span>
@@ -830,6 +838,15 @@ function Offers() {
   const offers = [
     {
       num: "01",
+      title: "Le Pré-Roll",
+      price: "4 000",
+      unit: "€",
+      desc: "Message court au début ou à la fin de la vidéo.",
+      example: "« Cette vidéo est soutenue par [Marque]. Allez sur [lien] »",
+      meta: ["Durée : 30-60 secondes MAX", "Placement : pré-roll ou post-roll"],
+    },
+    {
+      num: "02",
       title: "L'Intégration Premium : Mid-roll intégré",
       price: "6 000",
       unit: "€",
@@ -837,15 +854,6 @@ function Offers() {
       example: "L'invité évoque un usage concret, dans le fil de son histoire.",
       meta: ["Durée : 60-90 secondes MAX", "Placement : mid-roll"],
       highlight: true,
-    },
-    {
-      num: "02",
-      title: "Le Pré-Roll",
-      price: "4 000",
-      unit: "€",
-      desc: "Message court au début ou à la fin de la vidéo.",
-      example: "« Cette vidéo est soutenue par [Marque]. Allez sur [lien] »",
-      meta: ["Durée : 30-60 secondes MAX", "Placement : pré-roll ou post-roll"],
     },
     {
       num: "03",
@@ -871,10 +879,9 @@ function Offers() {
     <section id="offres" className="bg-slate-50 py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
-          <SectionTag>Notre Offre & Tarifs</SectionTag>
-          <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-5xl">
+          <SectionTag className="px-5 py-2 text-sm md:px-6 md:py-2.5 md:text-base">
             Notre Offre & Tarifs
-          </h2>
+          </SectionTag>
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
