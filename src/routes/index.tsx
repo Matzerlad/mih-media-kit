@@ -676,9 +676,9 @@ function Acquisition() {
                 {p.stats.map((s, j) => (
                   <div
                     key={j}
-                    className="flex min-h-40 flex-col justify-center bg-[#dff8fd] p-5"
+                    className="flex min-h-40 flex-col items-center justify-center bg-[#dff8fd] p-5 text-center"
                   >
-                    <div className="font-display text-6xl font-bold leading-none text-foreground md:text-7xl lg:text-8xl">
+                    <div className="font-display text-[clamp(4rem,5.2vw,6.4rem)] font-bold leading-none text-foreground">
                       {s.v}
                     </div>
                     <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
