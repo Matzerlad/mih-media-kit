@@ -138,10 +138,11 @@ function Hero() {
 
       <div className="relative mx-auto flex min-h-[calc(100vh-4.5rem)] max-w-7xl items-end px-5 pb-10 pt-40 md:px-6 md:pb-14">
         <div className="w-full">
-          <div className="grid max-w-3xl grid-cols-3 gap-3 border-y border-white/20 bg-[#061219]/60 py-5 backdrop-blur md:max-w-4xl">
+          <div className="grid max-w-3xl grid-cols-2 gap-3 border-y border-white/20 bg-[#061219]/60 py-5 backdrop-blur md:max-w-5xl md:grid-cols-4">
             {[
               ["100K", "abonnés"],
               ["105K", "vues / épisode"],
+              ["35%", "rétention moyenne"],
               ["40", "épisodes"],
             ].map(([value, label]) => (
               <div key={label}>
