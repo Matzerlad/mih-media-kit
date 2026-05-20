@@ -778,7 +778,7 @@ function Expertise() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-4xl">
           <div>
-            <SectionTag>Expertise / Réassurance</SectionTag>
+            <SectionTag>L'expertise des productions Tony Comiti</SectionTag>
             <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-6xl">
               TONY COMITI MÉDIA
             </h2>
