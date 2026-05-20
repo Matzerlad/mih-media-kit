@@ -276,7 +276,7 @@ function Concept() {
 
           <div className="my-12 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-          <blockquote className="relative mx-auto max-w-3xl text-center font-serif text-2xl italic leading-snug text-foreground md:text-3xl">
+          <blockquote className="relative mx-auto max-w-6xl text-center font-serif text-2xl italic leading-snug text-foreground md:whitespace-nowrap md:text-3xl">
             <span className="absolute -left-4 -top-8 text-6xl text-primary/25 md:-left-10 md:text-7xl">
               “
             </span>
