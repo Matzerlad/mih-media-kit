@@ -72,14 +72,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "MIH - Mon Incroyable Histoire | Kit Média Partenaires" },
+      {
+        name: "description",
+        content:
+          "Kit média partenaires de MIH - Mon Incroyable Histoire : audiences, performances, formats sponsors et offres.",
+      },
+      { name: "author", content: "Tony Comiti Média" },
+      { property: "og:title", content: "MIH - Kit Média Partenaires" },
+      {
+        property: "og:description",
+        content:
+          "Découvrez les audiences, performances et formats sponsors de Mon Incroyable Histoire.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      {
+        property: "og:image",
+        content: "https://partenaires.monincroyablehistoire.com/media/mih-hero-cover.png",
+      },
+      { property: "og:url", content: "https://partenaires.monincroyablehistoire.com" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "MIH - Kit Média Partenaires" },
+      {
+        name: "twitter:description",
+        content:
+          "Découvrez les audiences, performances et formats sponsors de Mon Incroyable Histoire.",
+      },
+      {
+        name: "twitter:image",
+        content: "https://partenaires.monincroyablehistoire.com/media/mih-hero-cover.png",
+      },
     ],
     links: [
       {
