@@ -534,13 +534,6 @@ function Audience() {
             <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-5xl">
               Une communauté attentive et engagée.
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-foreground/70">
-              Des adultes actifs, sensibles aux histoires vraies et aux échanges qui prennent leur
-              temps.
-            </p>
-            <div className="mt-8 rounded-2xl border border-foreground/10 bg-white/70 p-5 text-sm font-semibold uppercase tracking-wider text-foreground/65">
-              Commentaires réels issus de plusieurs épisodes YouTube.
-            </div>
           </div>
 
           <div className="relative">
@@ -751,15 +744,7 @@ function Expertise() {
     { name: "TF1", src: "/media/broadcasters/tf1.svg", className: "h-5" },
     { name: "France TV", src: "/media/broadcasters/france-tv.svg", className: "h-6" },
     { name: "Canal+", src: "/media/broadcasters/canal-plus.svg", className: "h-4" },
-    { name: "Arte", src: "/media/broadcasters/arte.svg", className: "h-6" },
     { name: "M6", src: "/media/broadcasters/m6.svg", className: "h-6" },
-    { name: "NHK", src: "/media/broadcasters/nhk.svg", className: "h-5" },
-    { name: "ABC", src: "/media/broadcasters/abc.svg", className: "h-6" },
-    {
-      name: "National Geographic",
-      src: "/media/broadcasters/national-geographic.svg",
-      className: "h-7",
-    },
   ];
 
   return (
@@ -767,14 +752,14 @@ function Expertise() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-4xl">
           <div>
-            <SectionTag>L'expertise des productions Tony Comiti</SectionTag>
+            <SectionTag>Expertise / Réassurance</SectionTag>
             <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-6xl">
-              TONY COMITI MÉDIA
+              L'expertise des productions Tony Comiti
             </h2>
-            <p className="mt-4 text-xl font-semibold italic text-primary">
-              Une expertise des récits du réel.
-            </p>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
+              <p className="font-semibold text-foreground">
+                Le programme MIH est publié chaque semaine sur la chaîne Tony Comiti Média.
+              </p>
               <p>
                 MIH est conçu par une équipe dédiée de 10 salariés au sein de la grande agence de
                 presse Tony Comiti.
@@ -804,9 +789,6 @@ function Expertise() {
                 ))}
               </div>
             </div>
-            <p className="mt-8 rounded-2xl border border-border bg-white/80 p-5 text-sm font-semibold text-foreground shadow-sm">
-              Le programme MIH est publié chaque semaine sur la Chaine Tony Comiti Média.
-            </p>
           </div>
         </div>
       </div>
