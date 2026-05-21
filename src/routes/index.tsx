@@ -679,8 +679,7 @@ function Acquisition() {
         </div>
 
         <div className="mt-10 rounded-2xl border border-border bg-[#dff8fd] p-6 text-xl text-foreground md:p-8">
-          <span className="font-semibold">Circulation :</span> les extraits courts créent la
-          découverte, puis renvoient vers YouTube.
+          Les shorts/reels renforcent la marque et renvoient vers les formats longs de YouTube.
         </div>
       </div>
     </section>
