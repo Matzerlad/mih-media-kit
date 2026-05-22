@@ -744,7 +744,9 @@ function Expertise() {
     { name: "TF1", src: "/media/broadcasters/tf1.svg", className: "h-5" },
     { name: "France TV", src: "/media/broadcasters/france-tv.svg", className: "h-6" },
     { name: "Canal+", src: "/media/broadcasters/canal-plus.svg", className: "h-4" },
+    { name: "Arte", src: "/media/broadcasters/arte.svg", className: "h-8" },
     { name: "M6", src: "/media/broadcasters/m6.svg", className: "h-6" },
+    { name: "RMC", src: "/media/broadcasters/rmc.svg", className: "h-7" },
   ];
 
   return (

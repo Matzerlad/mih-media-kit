@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 90" role="img" aria-label="RMC">
+  <rect width="220" height="90" fill="none"/>
+  <text
+    x="110"
+    y="63"
+    text-anchor="middle"
+    font-family="Arial Black, Arial, Helvetica, sans-serif"
+    font-size="58"
+    font-weight="900"
+    font-style="italic"
+    letter-spacing="-5"
+    fill="#F28C28"
+  >RMC</text>
+</svg>
