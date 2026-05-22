@@ -639,33 +639,39 @@ function Acquisition() {
           {platforms.map((p, i) => (
             <div
               key={i}
-              className="group flex min-h-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-white transition hover:-translate-y-1 hover:shadow-xl"
+              className="group flex overflow-hidden rounded-2xl border border-border bg-white transition hover:-translate-y-1 hover:shadow-xl"
             >
+              <div className={`flex w-full flex-col overflow-hidden ${p.stats.length === 1 ? "min-h-[300px]" : ""}`}>
               <div className={`flex items-center gap-4 p-5 ${p.color}`}>
-                <img src={p.logo} alt={`Logo ${p.name}`} className="size-10 object-contain" />
+                <img src={p.logo} alt={`Logo ${p.name}`} className="size-10 shrink-0 object-contain" />
                 <div>
                   <div className="font-display text-2xl font-bold">{p.name}</div>
                   <div className="mt-0.5 text-xs opacity-85">{p.handle}</div>
                 </div>
               </div>
               <div
-                className={`grid flex-1 gap-px bg-border ${
-                  p.stats.length === 1 ? "grid-cols-1" : "grid-cols-2"
+                className={`flex flex-1 flex-col gap-3 bg-[#dff8fd] p-4 ${
+                  p.stats.length === 1 ? "items-center justify-center" : "justify-start"
                 }`}
               >
                 {p.stats.map((s, j) => (
                   <div
                     key={j}
-                    className="flex min-h-40 flex-col items-center justify-center bg-[#dff8fd] p-5 text-center"
+                    className={`w-full rounded-xl border border-cyan-100 bg-white/65 p-4 shadow-sm ${
+                      p.stats.length === 1
+                        ? "flex min-h-36 flex-col items-center justify-center text-center"
+                        : "flex items-center justify-between gap-4"
+                    }`}
                   >
-                    <div className="font-display text-[clamp(4rem,5.2vw,6.4rem)] font-bold leading-none text-foreground">
+                    <div className="shrink-0 font-display text-[clamp(2.6rem,4vw,4.25rem)] font-bold leading-none text-foreground">
                       {s.v}
                     </div>
-                    <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-muted-foreground">
+                    <div className="text-right text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
                       {s.u}
                     </div>
                   </div>
                 ))}
+              </div>
               </div>
             </div>
           ))}
