@@ -1061,8 +1061,8 @@ export function Index() {
       <Header />
       <main>
         <Hero />
-        <Propos />
         <Concept />
+        <Propos />
         <Performances />
         <Audience />
         <Acquisition />
