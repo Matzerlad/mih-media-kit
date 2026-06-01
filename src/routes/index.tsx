@@ -611,7 +611,7 @@ function Acquisition() {
       logo: "/media/logos/spotify.svg",
       handle: "Podcast Mon Incroyable Histoire",
       color: "bg-[#1DB954] text-white",
-      stats: [{ v: "TOP 30", u: "En avril 2026" }],
+      stats: [{ v: "TOP 20", u: "Spotify France" }],
     },
     {
       name: "Instagram",
