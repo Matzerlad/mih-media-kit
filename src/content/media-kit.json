@@ -1,0 +1,242 @@
+{
+  "links": {
+    "youtubePlaylistUrl": "https://www.youtube.com/playlist?list=PLyzqvdCqSk_lwjj3ZDqUhZr5faSfnjbE6",
+    "calendarUrl": "https://cal.com/monincroyablehistoire/15min"
+  },
+  "hero": {
+    "image": "/media/mih-hero-cover.png",
+    "stats": [
+      { "value": "100K", "label": "abonnés" },
+      { "value": "105K", "label": "vues / épisode" },
+      { "value": "35%", "label": "taux de rétention" },
+      { "value": "40", "label": "épisodes" }
+    ]
+  },
+  "propos": {
+    "titleLines": ["Des épreuves.", "Du courage.", "De la résilience."],
+    "paragraphs": [
+      "Nos témoins racontent minute par minute le moment qui a bouleversé leur existence et nous embarquent dans un récit captivant et plein d'émotions.",
+      "Ces interviews menées par le journaliste Jean-Charles Doria sont centrées sur des valeurs positives. Des destins hors du commun, des parcours de résilience et des leçons de vie qui inspirent et fédèrent une communauté en quête de sens et d'authenticité."
+    ]
+  },
+  "concept": {
+    "heading": "MIH, UN CONCEPT FORT ET ORIGINAL",
+    "bullets": [
+      "Des formats longs de 40 à 60 minutes",
+      "Des témoignages marquants : connexion émotionnelle avec le public",
+      "Des parcours variés et hors-normes : touche un large public et suscite la curiosité",
+      "Un format adapté aux réseaux : se consomme sur tous les supports"
+    ],
+    "videos": [
+      {
+        "youtubeId": "v99hxmVdiZE",
+        "url": "https://www.youtube.com/watch?v=v99hxmVdiZE&list=PLyzqvdCqSk_lwjj3ZDqUhZr5faSfnjbE6&index=1",
+        "title": "Pablo Escobar / Tony Comiti : les secrets d'une interview choc",
+        "views": "671K vues"
+      },
+      {
+        "youtubeId": "AaD_a0vDbLc",
+        "url": "https://www.youtube.com/watch?v=AaD_a0vDbLc&list=PLyzqvdCqSk_lwjj3ZDqUhZr5faSfnjbE6&index=2",
+        "title": "J'ai été séquestrée et torturée par mes deux meilleures amies",
+        "views": "463K vues"
+      },
+      {
+        "youtubeId": "XLBSqOR7bzA",
+        "url": "https://youtu.be/XLBSqOR7bzA?si=QcByc05lYuDQwe9d",
+        "title": "Au coeur du Bataclan, le chef de la BRI raconte l'assaut",
+        "views": "206K vues"
+      }
+    ]
+  },
+  "performances": {
+    "heading": "Des récits qui retiennent l'attention",
+    "bigStat": { "value": "8M", "label": "record absolu sur une vidéo" },
+    "comparison": [
+      { "label": "Ratio Vues / Abonnés", "mih": 105, "market": 15 },
+      { "label": "Rétention (Vidéos > 40 min)", "mih": 35, "market": 20 },
+      { "label": "Taux de Clic (CTR)", "mih": 5.5, "market": 4 }
+    ],
+    "comparisonNote": "Sources marché : Benchmarks VidIQ/TubeBuddy 2025 & données officielles YouTube Creator Academy pour les formats documentaires.",
+    "audienceSplit": [
+      { "name": "Hommes (25-45 ans)", "value": 55 },
+      { "name": "Femmes (25-45 ans)", "value": 45 }
+    ]
+  },
+  "audience": {
+    "heading": "Une communauté attentive et engagée.",
+    "comments": [
+      {
+        "handle": "@leane8734",
+        "time": "il y a 7 mois",
+        "likes": "101",
+        "episode": "Escobar / Tony Comiti",
+        "avatar": "/media/avatars/youtube/leane8734.jpg",
+        "text": "Je trouve cette histoire dingue ! Du journalisme, du vrai ! Revoir toutes ces images d'archives c'est tellement enrichissant, beau travail."
+      },
+      {
+        "handle": "@seblopez4140",
+        "time": "il y a 7 mois",
+        "likes": "82",
+        "episode": "Escobar / Tony Comiti",
+        "avatar": "/media/avatars/youtube/seblopez4140.jpg",
+        "text": "Qu'il est agréable de trouver enfin la définition du vrai journalisme... Et quel courage !!!"
+      },
+      {
+        "handle": "@69jrodrigues",
+        "time": "il y a 5 mois",
+        "likes": "471",
+        "episode": "Kelly, survivante",
+        "avatar": "/media/avatars/youtube/69jrodrigues.jpg",
+        "text": "Kelly, vous êtes une femme d'une grande beauté, intelligente et profondément courageuse. Je vous souhaite tout le bonheur du monde."
+      },
+      {
+        "handle": "@tres.moche.tres.mechant",
+        "time": "il y a 4 mois",
+        "likes": "38",
+        "episode": "Kelly, survivante",
+        "avatar": "/media/avatars/youtube/tres-moche-tres-mechant.jpg",
+        "text": "Je suis frappé par le courage et la force de cette femme, qui n'était qu'une enfant à l'époque des faits."
+      },
+      {
+        "handle": "@yohanjanolin2271",
+        "time": "il y a 6 mois",
+        "likes": "75",
+        "episode": "Au coeur du Bataclan",
+        "avatar": "/media/avatars/youtube/yohanjanolin2271.jpg",
+        "text": "Un très très grand monsieur, tellement digne et maître de ses émotions. Lui et ses équipes sont nos héros du 21ème siècle."
+      }
+    ]
+  },
+  "acquisition": {
+    "heading": "MIH sur toutes les plateformes.",
+    "note": "Les shorts/reels renforcent la marque et renvoient vers les formats longs de YouTube.",
+    "platforms": [
+      {
+        "id": "tiktok",
+        "handle": "@monincroyablehistoire",
+        "stats": [
+          { "value": "210K", "label": "Abonnés" },
+          { "value": "3,9M", "label": "Likes" },
+          { "value": "2M+", "label": "Vues / extrait" },
+          { "value": "5-7%", "label": "Taux d'engagement" }
+        ]
+      },
+      {
+        "id": "spotify",
+        "handle": "Podcast Mon Incroyable Histoire",
+        "stats": [{ "value": "TOP 20", "label": "Spotify France" }]
+      },
+      {
+        "id": "instagram",
+        "handle": "@monincroyablehistoire_mih",
+        "stats": [
+          { "value": "9K", "label": "Abonnés" },
+          { "value": "800K", "label": "Vues sur les Reels" }
+        ]
+      }
+    ]
+  },
+  "expertise": {
+    "heading": "L'experience des productions Tony Comiti",
+    "highlight": "Le programme MIH est publié chaque semaine sur la chaîne Tony Comiti Média.",
+    "paragraphs": [
+      "MIH est conçu par une équipe dédiée de 10 salariés au sein de la grande agence de presse Tony Comiti.",
+      "L'agence produit depuis de nombreuses années des programmes (documentaires et reportages) de société pour les plus grandes chaînes TV en France et à l'international."
+    ],
+    "broadcasters": [
+      { "name": "TF1", "logo": "/media/broadcasters/tf1.svg" },
+      { "name": "France TV", "logo": "/media/broadcasters/france-tv.svg" },
+      { "name": "Canal+", "logo": "/media/broadcasters/canal-plus.svg" },
+      { "name": "Arte", "logo": "/media/broadcasters/arte.svg" },
+      { "name": "M6", "logo": "/media/broadcasters/m6.svg" },
+      { "name": "RMC", "logo": "/media/broadcasters/rmc.svg" }
+    ]
+  },
+  "offers": [
+    {
+      "num": "01",
+      "title": "Le Pré-Roll",
+      "price": "4 000",
+      "unit": "€",
+      "desc": "Message court au début ou à la fin de la vidéo.",
+      "example": "« Cette vidéo est soutenue par [Marque]. Allez sur [lien] »",
+      "meta": ["Durée : 30-60 secondes MAX", "Placement : pré-roll ou post-roll"],
+      "highlight": false
+    },
+    {
+      "num": "02",
+      "title": "L'Intégration Premium : Mid-roll intégré",
+      "price": "6 000",
+      "unit": "€",
+      "desc": "La marque apparaît au milieu de l'épisode, après une respiration éditoriale.",
+      "example": "L'invité évoque un usage concret, dans le fil de son histoire.",
+      "meta": ["Durée : 60-90 secondes MAX", "Placement : mid-roll"],
+      "highlight": true
+    },
+    {
+      "num": "03",
+      "title": "BUNDLE (Long-Format + Shorts)",
+      "price": "8 500",
+      "unit": "€",
+      "desc": "1 présence dans l'épisode + 3 à 4 Shorts TikTok autour du même partenaire.",
+      "example": "Une même campagne touche YouTube et TikTok sans changer de territoire.",
+      "meta": ["1 vidéo 60-90 sec", "3-4 Shorts de 15-30 sec"],
+      "highlight": false
+    },
+    {
+      "num": "04",
+      "title": "Le Partenariat de Saison",
+      "price": "Sur devis",
+      "unit": "",
+      "desc": "Une présence installée sur plusieurs épisodes, pensée pour la répétition et la confiance.",
+      "example": "Deux prises de parole séparées, avec une cohérence éditoriale sur la durée.",
+      "meta": ["Intégrations multiples non consécutives"],
+      "highlight": false
+    }
+  ],
+  "reels": [
+    {
+      "id": "DX1WiiXhtXz",
+      "url": "https://www.instagram.com/reel/DX1WiiXhtXz/",
+      "video": "/media/reels/DX1WiiXhtXz.mp4",
+      "views": "69K"
+    },
+    {
+      "id": "DXcVdJwD8sA",
+      "url": "https://www.instagram.com/reel/DXcVdJwD8sA/",
+      "video": "/media/reels/DXcVdJwD8sA.mp4",
+      "views": "1,1M"
+    },
+    {
+      "id": "DXXAIM8MAHy",
+      "url": "https://www.instagram.com/reel/DXXAIM8MAHy/",
+      "video": "/media/reels/DXXAIM8MAHy.mp4",
+      "views": "116K"
+    }
+  ],
+  "contact": {
+    "heading": "Parlons d'un partenariat.",
+    "paragraph": "Réservez un créneau de quinze minutes pour cadrer vos objectifs et recevoir une proposition claire.",
+    "email": "commercial@monincroyablehistoire.com",
+    "addressName": "Tony Comiti Media — MIH Mon Incroyable Histoire",
+    "addressLine": "69 avenue Pierre Grenier, 92100 Boulogne Billancourt",
+    "socials": [
+      { "id": "youtube", "handle": "Playlist MIH" },
+      {
+        "id": "tiktok",
+        "handle": "@monincroyablehistoire",
+        "href": "https://www.tiktok.com/@monincroyablehistoire"
+      },
+      {
+        "id": "instagram",
+        "handle": "@monincroyablehistoire_mih",
+        "href": "https://www.instagram.com/monincroyablehistoire_mih/"
+      },
+      {
+        "id": "spotify",
+        "handle": "Podcast Mon Incroyable Histoire",
+        "href": "https://open.spotify.com/search/Mon%20Incroyable%20Histoire"
+      }
+    ]
+  }
+}

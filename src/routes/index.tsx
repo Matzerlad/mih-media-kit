@@ -2,43 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import {
   Mail,
   MapPin,
-  Users,
   Sparkles,
-  Film,
-  Headphones,
   ArrowRight,
   Check,
   Quote,
   Music2,
   Instagram,
   Youtube,
+  Headphones,
 } from "lucide-react";
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 
-const YOUTUBE_PLAYLIST_URL =
-  "https://www.youtube.com/playlist?list=PLyzqvdCqSk_lwjj3ZDqUhZr5faSfnjbE6";
-const CALENDAR_URL = "https://cal.com/monincroyablehistoire/15min";
-
-const INSTAGRAM_REELS = [
-  {
-    id: "DX1WiiXhtXz",
-    url: "https://www.instagram.com/reel/DX1WiiXhtXz/",
-    video: "/media/reels/DX1WiiXhtXz.mp4",
-    views: "69K",
-  },
-  {
-    id: "DXcVdJwD8sA",
-    url: "https://www.instagram.com/reel/DXcVdJwD8sA/",
-    video: "/media/reels/DXcVdJwD8sA.mp4",
-    views: "1,1M",
-  },
-  {
-    id: "DXXAIM8MAHy",
-    url: "https://www.instagram.com/reel/DXXAIM8MAHy/",
-    video: "/media/reels/DXXAIM8MAHy.mp4",
-    views: "116K",
-  },
-];
+import mediaKit from "@/content/media-kit.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -127,17 +102,19 @@ function Header() {
 /* ---------- 1. Hero ---------- */
 
 function Hero() {
+  const { hero, links } = mediaKit;
+
   return (
     <section className="relative min-h-[calc(100vh-4.5rem)] overflow-hidden bg-[#061219] text-white">
       <a
-        href={YOUTUBE_PLAYLIST_URL}
+        href={links.youtubePlaylistUrl}
         target="_blank"
         rel="noreferrer"
         className="absolute inset-0 block"
         aria-label="Voir la playlist MIH sur YouTube"
       >
         <img
-          src="/media/mih-hero-cover.png"
+          src={hero.image}
           alt="MIH - Mon Incroyable Histoire"
           className="size-full object-contain object-top"
         />
@@ -147,25 +124,20 @@ function Hero() {
       <div className="relative mx-auto flex min-h-[calc(100vh-4.5rem)] max-w-7xl items-end px-5 pb-10 pt-40 md:px-6 md:pb-14">
         <div className="w-full">
           <div className="grid max-w-3xl grid-cols-2 gap-3 border-y border-white/20 bg-[#061219]/60 py-5 backdrop-blur md:max-w-5xl md:grid-cols-4">
-            {[
-              ["100K", "abonnés"],
-              ["105K", "vues / épisode"],
-              ["35%", "taux de rétention"],
-              ["40", "épisodes"],
-            ].map(([value, label]) => (
-              <div key={label}>
+            {hero.stats.map((stat) => (
+              <div key={stat.label}>
                 <div className="font-display text-4xl font-bold text-white md:text-6xl">
-                  {value}
+                  {stat.value}
                 </div>
                 <div className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-white/55">
-                  {label}
+                  {stat.label}
                 </div>
               </div>
             ))}
           </div>
           <div className="flex flex-wrap gap-3">
             <a
-              href={YOUTUBE_PLAYLIST_URL}
+              href={links.youtubePlaylistUrl}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#ff0033] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:bg-[#e6002e] hover:shadow-lg"
@@ -188,6 +160,8 @@ function Hero() {
 /* ---------- 2. Propos ---------- */
 
 function Propos() {
+  const { propos } = mediaKit;
+
   return (
     <section id="propos" className="bg-white py-24">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
@@ -198,26 +172,21 @@ function Propos() {
               “
             </div>
             <h2 className="relative font-serif text-5xl font-semibold leading-[0.98] tracking-normal text-foreground md:text-7xl">
-              Des épreuves.
-              <br />
-              Du courage.
-              <br />
-              De la résilience.
+              {propos.titleLines.map((line, index) => (
+                <span key={line}>
+                  {line}
+                  {index < propos.titleLines.length - 1 && <br />}
+                </span>
+              ))}
             </h2>
           </div>
         </div>
 
         <div className="pt-3 lg:pt-16">
           <div className="space-y-7 border-l border-border pl-6 text-lg leading-relaxed text-muted-foreground md:pl-8 md:text-xl">
-            <p>
-              Nos témoins racontent minute par minute le moment qui a bouleversé leur existence et
-              nous embarquent dans un récit captivant et plein d'émotions.
-            </p>
-            <p>
-              Ces interviews menées par le journaliste Jean-Charles Doria sont centrées sur des
-              valeurs positives. Des destins hors du commun, des parcours de résilience et des leçons
-              de vie qui inspirent et fédèrent une communauté en quête de sens et d'authenticité.
-            </p>
+            {propos.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </div>
       </div>
@@ -228,26 +197,7 @@ function Propos() {
 /* ---------- 3. Concept ---------- */
 
 function Concept() {
-  const youtubeVideos = [
-    {
-      id: "v99hxmVdiZE",
-      url: "https://www.youtube.com/watch?v=v99hxmVdiZE&list=PLyzqvdCqSk_lwjj3ZDqUhZr5faSfnjbE6&index=1",
-      title: "Pablo Escobar / Tony Comiti : les secrets d'une interview choc",
-      views: "671K vues",
-    },
-    {
-      id: "AaD_a0vDbLc",
-      url: "https://www.youtube.com/watch?v=AaD_a0vDbLc&list=PLyzqvdCqSk_lwjj3ZDqUhZr5faSfnjbE6&index=2",
-      title: "J'ai été séquestrée et torturée par mes deux meilleures amies",
-      views: "463K vues",
-    },
-    {
-      id: "XLBSqOR7bzA",
-      url: "https://youtu.be/XLBSqOR7bzA?si=QcByc05lYuDQwe9d",
-      title: "Au coeur du Bataclan, le chef de la BRI raconte l'assaut",
-      views: "206K vues",
-    },
-  ];
+  const { concept } = mediaKit;
 
   return (
     <section id="concept" className="bg-slate-50 py-24">
@@ -255,15 +205,10 @@ function Concept() {
         <div className="mx-auto max-w-4xl">
           <SectionTag>Le Concept</SectionTag>
           <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-6xl">
-            MIH, UN CONCEPT FORT ET ORIGINAL
+            {concept.heading}
           </h2>
           <div className="mt-9 grid gap-4 text-lg leading-relaxed text-muted-foreground md:text-xl">
-            {[
-              "Des formats longs de 40 à 60 minutes",
-              "Des témoignages marquants : connexion émotionnelle avec le public",
-              "Des parcours variés et hors-normes : touche un large public et suscite la curiosité",
-              "Un format adapté aux réseaux : se consomme sur tous les supports",
-            ].map((item, index) => (
+            {concept.bullets.map((item, index) => (
               <div
                 key={item}
                 className="flex gap-4 rounded-2xl border border-border bg-white p-5 shadow-sm"
@@ -278,9 +223,9 @@ function Concept() {
         </div>
 
         <div className="mt-16 grid gap-4 md:grid-cols-3">
-          {youtubeVideos.map((video) => (
+          {concept.videos.map((video) => (
             <a
-              key={video.id}
+              key={video.youtubeId}
               href={video.url}
               target="_blank"
               rel="noreferrer"
@@ -288,7 +233,7 @@ function Concept() {
             >
               <div className="relative aspect-video overflow-hidden bg-[#061219]">
                 <img
-                  src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                  src={`https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`}
                   alt={video.title}
                   className="size-full object-cover transition duration-500 group-hover:scale-[1.03]"
                 />
@@ -316,16 +261,7 @@ function Concept() {
 /* ---------- 4. Performances ---------- */
 
 function Performances() {
-  const stats = [["8M", "record absolu sur une vidéo"]];
-  const comparisonData = [
-    { label: "Ratio Vues / Abonnés", mih: 105, market: 15 },
-    { label: "Rétention (Vidéos > 40 min)", mih: 35, market: 20 },
-    { label: "Taux de Clic (CTR)", mih: 5.5, market: 4 },
-  ];
-  const ecosystemData = [
-    { name: "Hommes (25-45 ans)", value: 55 },
-    { name: "Femmes (25-45 ans)", value: 45 },
-  ];
+  const { performances } = mediaKit;
   const donutColors = ["#08b6c8", "#101827"];
 
   return (
@@ -336,20 +272,18 @@ function Performances() {
             <div>
               <SectionTag>Performances</SectionTag>
               <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-5xl">
-                Des récits qui retiennent l'attention
+                {performances.heading}
               </h2>
             </div>
             <div className="overflow-hidden rounded-xl border border-white/10 bg-white/10">
-              {stats.map(([value, label]) => (
-                <div key={label} className="bg-[#061219] p-6 md:p-8">
-                  <div className="font-display text-7xl font-bold leading-none text-primary md:text-8xl">
-                    {value}
-                  </div>
-                  <div className="mt-4 text-xs font-semibold uppercase tracking-wider text-white/55 md:text-sm">
-                    {label}
-                  </div>
+              <div className="bg-[#061219] p-6 md:p-8">
+                <div className="font-display text-7xl font-bold leading-none text-primary md:text-8xl">
+                  {performances.bigStat.value}
                 </div>
-              ))}
+                <div className="mt-4 text-xs font-semibold uppercase tracking-wider text-white/55 md:text-sm">
+                  {performances.bigStat.label}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -374,7 +308,7 @@ function Performances() {
                 </div>
               </div>
               <div className="space-y-6">
-                {comparisonData.map((metric) => {
+                {performances.comparison.map((metric) => {
                   const max = Math.max(metric.mih, metric.market);
                   return (
                     <div key={metric.label}>
@@ -401,10 +335,7 @@ function Performances() {
                     </div>
                   );
                 })}
-                <p className="text-xs text-slate-500">
-                  Sources marché : Benchmarks VidIQ/TubeBuddy 2025 & données officielles YouTube
-                  Creator Academy pour les formats documentaires.
-                </p>
+                <p className="text-xs text-slate-500">{performances.comparisonNote}</p>
               </div>
             </div>
 
@@ -415,7 +346,7 @@ function Performances() {
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
-                      data={ecosystemData}
+                      data={performances.audienceSplit}
                       dataKey="value"
                       nameKey="name"
                       innerRadius={76}
@@ -423,7 +354,7 @@ function Performances() {
                       paddingAngle={4}
                       stroke="none"
                     >
-                      {ecosystemData.map((entry, index) => (
+                      {performances.audienceSplit.map((entry, index) => (
                         <Cell key={entry.name} fill={donutColors[index]} />
                       ))}
                     </Pie>
@@ -482,48 +413,7 @@ function ComparisonBar({
 /* ---------- 5. Audience ---------- */
 
 function Audience() {
-  const comments = [
-    {
-      handle: "@leane8734",
-      time: "il y a 7 mois",
-      likes: "101",
-      episode: "Escobar / Tony Comiti",
-      avatar: "/media/avatars/youtube/leane8734.jpg",
-      text: "Je trouve cette histoire dingue ! Du journalisme, du vrai ! Revoir toutes ces images d'archives c'est tellement enrichissant, beau travail.",
-    },
-    {
-      handle: "@seblopez4140",
-      time: "il y a 7 mois",
-      likes: "82",
-      episode: "Escobar / Tony Comiti",
-      avatar: "/media/avatars/youtube/seblopez4140.jpg",
-      text: "Qu'il est agréable de trouver enfin la définition du vrai journalisme... Et quel courage !!!",
-    },
-    {
-      handle: "@69jrodrigues",
-      time: "il y a 5 mois",
-      likes: "471",
-      episode: "Kelly, survivante",
-      avatar: "/media/avatars/youtube/69jrodrigues.jpg",
-      text: "Kelly, vous êtes une femme d'une grande beauté, intelligente et profondément courageuse. Je vous souhaite tout le bonheur du monde.",
-    },
-    {
-      handle: "@tres.moche.tres.mechant",
-      time: "il y a 4 mois",
-      likes: "38",
-      episode: "Kelly, survivante",
-      avatar: "/media/avatars/youtube/tres-moche-tres-mechant.jpg",
-      text: "Je suis frappé par le courage et la force de cette femme, qui n'était qu'une enfant à l'époque des faits.",
-    },
-    {
-      handle: "@yohanjanolin2271",
-      time: "il y a 6 mois",
-      likes: "75",
-      episode: "Au coeur du Bataclan",
-      avatar: "/media/avatars/youtube/yohanjanolin2271.jpg",
-      text: "Un très très grand monsieur, tellement digne et maître de ses émotions. Lui et ses équipes sont nos héros du 21ème siècle.",
-    },
-  ];
+  const { audience } = mediaKit;
 
   return (
     <section className="overflow-hidden bg-primary py-20 text-foreground">
@@ -532,14 +422,14 @@ function Audience() {
           <div>
             <SectionTag>Notre Audience</SectionTag>
             <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-5xl">
-              Une communauté attentive et engagée.
+              {audience.heading}
             </h2>
           </div>
 
           <div className="relative">
             <div className="absolute left-[8%] top-0 hidden h-48 w-48 rounded-full bg-white/25 blur-3xl md:block" />
             <div className="grid gap-4 md:grid-cols-2">
-              {comments.map((comment) => (
+              {audience.comments.map((comment) => (
                 <article
                   key={comment.text}
                   className="rounded-2xl border border-foreground/10 bg-[#061219] p-5 text-white shadow-2xl transition hover:-translate-y-1 hover:border-white/40"
@@ -592,38 +482,26 @@ function ThumbIcon() {
 
 /* ---------- 6. Acquisition / viralité ---------- */
 
+const PLATFORM_PRESENTATION: Record<string, { name: string; logo: string; color: string }> = {
+  tiktok: {
+    name: "TikTok",
+    logo: "/media/logos/tiktok.svg",
+    color: "bg-[#050816] text-white",
+  },
+  spotify: {
+    name: "Spotify",
+    logo: "/media/logos/spotify.svg",
+    color: "bg-[#1DB954] text-white",
+  },
+  instagram: {
+    name: "Instagram",
+    logo: "/media/logos/instagram.svg",
+    color: "bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white",
+  },
+};
+
 function Acquisition() {
-  const platforms = [
-    {
-      name: "TikTok",
-      logo: "/media/logos/tiktok.svg",
-      handle: "@monincroyablehistoire",
-      color: "bg-[#050816] text-white",
-      stats: [
-        { v: "210K", u: "Abonnés" },
-        { v: "3,9M", u: "Likes" },
-        { v: "2M+", u: "Vues / extrait" },
-        { v: "5-7%", u: "Taux d'engagement" },
-      ],
-    },
-    {
-      name: "Spotify",
-      logo: "/media/logos/spotify.svg",
-      handle: "Podcast Mon Incroyable Histoire",
-      color: "bg-[#1DB954] text-white",
-      stats: [{ v: "TOP 20", u: "Spotify France" }],
-    },
-    {
-      name: "Instagram",
-      logo: "/media/logos/instagram.svg",
-      handle: "@monincroyablehistoire_mih",
-      color: "bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white",
-      stats: [
-        { v: "9K", u: "Abonnés" },
-        { v: "800K", u: "Vues sur les Reels" },
-      ],
-    },
-  ];
+  const { acquisition } = mediaKit;
 
   return (
     <section className="bg-white py-20">
@@ -631,63 +509,74 @@ function Acquisition() {
         <div className="max-w-4xl">
           <SectionTag>Acquisition & Viralité</SectionTag>
           <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-6xl">
-            MIH sur toutes les plateformes.
+            {acquisition.heading}
           </h2>
         </div>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
-          {platforms.map((p, i) => (
-            <div
-              key={i}
-              className="group flex overflow-hidden rounded-2xl border border-border bg-white transition hover:-translate-y-1 hover:shadow-xl"
-            >
-              <div className={`flex w-full flex-col overflow-hidden ${p.stats.length === 1 ? "min-h-[300px]" : ""}`}>
-              <div className={`flex items-center gap-4 p-5 ${p.color}`}>
-                <img src={p.logo} alt={`Logo ${p.name}`} className="size-10 shrink-0 object-contain" />
-                <div>
-                  <div className="font-display text-2xl font-bold">{p.name}</div>
-                  <div className="mt-0.5 text-xs opacity-85">{p.handle}</div>
-                </div>
-              </div>
+          {acquisition.platforms.map((p) => {
+            const presentation = PLATFORM_PRESENTATION[p.id];
+            return (
               <div
-                className={`flex flex-1 flex-col gap-3 bg-[#dff8fd] p-4 ${
-                  p.stats.length === 1 ? "items-center justify-center" : "justify-start"
-                }`}
+                key={p.id}
+                className="group flex overflow-hidden rounded-2xl border border-border bg-white transition hover:-translate-y-1 hover:shadow-xl"
               >
-                {p.stats.map((s, j) => (
-                  <div
-                    key={j}
-                    className={`w-full rounded-xl border border-cyan-100 bg-white/65 p-4 shadow-sm ${
-                      p.stats.length === 1
-                        ? "flex min-h-36 flex-col items-center justify-center text-center"
-                        : "flex items-center justify-between gap-4"
-                    }`}
-                  >
-                    <div className="shrink-0 font-display text-[clamp(2.6rem,4vw,4.25rem)] font-bold leading-none text-foreground">
-                      {s.v}
-                    </div>
-                    <div className="text-right text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
-                      {s.u}
+                <div
+                  className={`flex w-full flex-col overflow-hidden ${p.stats.length === 1 ? "min-h-[300px]" : ""}`}
+                >
+                  <div className={`flex items-center gap-4 p-5 ${presentation.color}`}>
+                    <img
+                      src={presentation.logo}
+                      alt={`Logo ${presentation.name}`}
+                      className="size-10 shrink-0 object-contain"
+                    />
+                    <div>
+                      <div className="font-display text-2xl font-bold">{presentation.name}</div>
+                      <div className="mt-0.5 text-xs opacity-85">{p.handle}</div>
                     </div>
                   </div>
-                ))}
+                  <div
+                    className={`flex flex-1 flex-col gap-3 bg-[#dff8fd] p-4 ${
+                      p.stats.length === 1 ? "items-center justify-center" : "justify-start"
+                    }`}
+                  >
+                    {p.stats.map((s, j) => (
+                      <div
+                        key={j}
+                        className={`w-full rounded-xl border border-cyan-100 bg-white/65 p-4 shadow-sm ${
+                          p.stats.length === 1
+                            ? "flex min-h-36 flex-col items-center justify-center text-center"
+                            : "flex items-center justify-between gap-4"
+                        }`}
+                      >
+                        <div className="shrink-0 font-display text-[clamp(2.6rem,4vw,4.25rem)] font-bold leading-none text-foreground">
+                          {s.value}
+                        </div>
+                        <div className="text-right text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                          {s.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="mt-10 rounded-2xl border border-border bg-[#dff8fd] p-6 text-xl text-foreground md:p-8">
-          Les shorts/reels renforcent la marque et renvoient vers les formats longs de YouTube.
+          {acquisition.note}
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------- 7. Offres ---------- */
+/* ---------- 7. Reels & Offres ---------- */
 
 function InstagramReels() {
+  const { reels } = mediaKit;
+
   return (
     <section className="bg-slate-50 py-16">
       <div className="mx-auto max-w-7xl px-6">
@@ -699,7 +588,7 @@ function InstagramReels() {
         </div>
 
         <div className="mt-8 grid gap-4 md:grid-cols-3">
-          {INSTAGRAM_REELS.map((reel, index) => (
+          {reels.map((reel, index) => (
             <article
               key={reel.id}
               className="mx-auto w-full max-w-[320px] overflow-hidden rounded-xl border border-border bg-white shadow-sm transition hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
@@ -746,14 +635,7 @@ function InstagramReels() {
 }
 
 function Expertise() {
-  const broadcasterLogos = [
-    { name: "TF1", src: "/media/broadcasters/tf1.svg", className: "h-5" },
-    { name: "France TV", src: "/media/broadcasters/france-tv.svg", className: "h-6" },
-    { name: "Canal+", src: "/media/broadcasters/canal-plus.svg", className: "h-4" },
-    { name: "Arte", src: "/media/broadcasters/arte.svg", className: "h-8" },
-    { name: "M6", src: "/media/broadcasters/m6.svg", className: "h-6" },
-    { name: "RMC", src: "/media/broadcasters/rmc.svg", className: "h-7" },
-  ];
+  const { expertise } = mediaKit;
 
   return (
     <section className="bg-slate-100 py-24">
@@ -762,36 +644,28 @@ function Expertise() {
           <div>
             <SectionTag>Notre expertise</SectionTag>
             <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-6xl">
-              L'experience des productions Tony Comiti
+              {expertise.heading}
             </h2>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
-              <p className="font-semibold text-foreground">
-                Le programme MIH est publié chaque semaine sur la chaîne Tony Comiti Média.
-              </p>
-              <p>
-                MIH est conçu par une équipe dédiée de 10 salariés au sein de la grande agence de
-                presse Tony Comiti.
-              </p>
-              <p>
-                L'agence produit depuis de nombreuses années des programmes (documentaires et
-                reportages) de société pour les plus grandes chaînes TV en France et à
-                l'international.
-              </p>
+              <p className="font-semibold text-foreground">{expertise.highlight}</p>
+              {expertise.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
             <div className="mt-8">
               <div className="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">
                 Références diffuseurs
               </div>
               <div className="flex flex-wrap items-center gap-3">
-                {broadcasterLogos.map((logo) => (
+                {expertise.broadcasters.map((logo) => (
                   <div
                     key={logo.name}
                     className="inline-flex h-12 items-center justify-center rounded-xl border border-border bg-white px-4 shadow-sm"
                   >
                     <img
-                      src={logo.src}
+                      src={logo.logo}
                       alt={`Logo ${logo.name}`}
-                      className={`max-w-[7.5rem] object-contain ${logo.className}`}
+                      className="max-h-7 max-w-[7.5rem] object-contain"
                     />
                   </div>
                 ))}
@@ -805,45 +679,7 @@ function Expertise() {
 }
 
 function Offers() {
-  const offers = [
-    {
-      num: "01",
-      title: "Le Pré-Roll",
-      price: "4 000",
-      unit: "€",
-      desc: "Message court au début ou à la fin de la vidéo.",
-      example: "« Cette vidéo est soutenue par [Marque]. Allez sur [lien] »",
-      meta: ["Durée : 30-60 secondes MAX", "Placement : pré-roll ou post-roll"],
-    },
-    {
-      num: "02",
-      title: "L'Intégration Premium : Mid-roll intégré",
-      price: "6 000",
-      unit: "€",
-      desc: "La marque apparaît au milieu de l'épisode, après une respiration éditoriale.",
-      example: "L'invité évoque un usage concret, dans le fil de son histoire.",
-      meta: ["Durée : 60-90 secondes MAX", "Placement : mid-roll"],
-      highlight: true,
-    },
-    {
-      num: "03",
-      title: "BUNDLE (Long-Format + Shorts)",
-      price: "8 500",
-      unit: "€",
-      desc: "1 présence dans l'épisode + 3 à 4 Shorts TikTok autour du même partenaire.",
-      example: "Une même campagne touche YouTube et TikTok sans changer de territoire.",
-      meta: ["1 vidéo 60-90 sec", "3-4 Shorts de 15-30 sec"],
-    },
-    {
-      num: "04",
-      title: "Le Partenariat de Saison",
-      price: "Sur devis",
-      unit: "",
-      desc: "Une présence installée sur plusieurs épisodes, pensée pour la répétition et la confiance.",
-      example: "Deux prises de parole séparées, avec une cohérence éditoriale sur la durée.",
-      meta: ["Intégrations multiples non consécutives"],
-    },
-  ];
+  const { offers, links } = mediaKit;
 
   return (
     <section id="offres" className="bg-slate-50 py-24">
@@ -907,7 +743,7 @@ function Offers() {
               </ul>
 
               <a
-                href={CALENDAR_URL}
+                href={links.calendarUrl}
                 target="_blank"
                 rel="noreferrer"
                 className={`mt-6 inline-flex items-center justify-center gap-1 rounded-full px-4 py-2.5 text-xs font-semibold transition ${
@@ -928,7 +764,16 @@ function Offers() {
 
 /* ---------- 8. Contact ---------- */
 
+const SOCIAL_PRESENTATION: Record<string, { icon: typeof Youtube; name: string }> = {
+  youtube: { icon: Youtube, name: "YouTube" },
+  tiktok: { icon: Music2, name: "TikTok" },
+  instagram: { icon: Instagram, name: "Instagram" },
+  spotify: { icon: Headphones, name: "Spotify" },
+};
+
 function Contact() {
+  const { contact, links } = mediaKit;
+
   return (
     <section id="contact" className="bg-primary py-20">
       <div className="mx-auto max-w-7xl px-6">
@@ -937,14 +782,11 @@ function Contact() {
             <div>
               <SectionTag>Contact</SectionTag>
               <h2 className="mt-5 font-display text-4xl font-bold leading-tight md:text-5xl">
-                Parlons d'un partenariat.
+                {contact.heading}
               </h2>
-              <p className="mt-6 text-lg opacity-90">
-                Réservez un créneau de quinze minutes pour cadrer vos objectifs et recevoir une
-                proposition claire.
-              </p>
+              <p className="mt-6 text-lg opacity-90">{contact.paragraph}</p>
               <a
-                href={CALENDAR_URL}
+                href={links.calendarUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-4 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:bg-white hover:text-foreground"
@@ -960,11 +802,8 @@ function Contact() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-wider opacity-70">Commercial</div>
-                    <a
-                      href="mailto:commercial@monincroyablehistoire.com"
-                      className="font-semibold hover:underline"
-                    >
-                      commercial@monincroyablehistoire.com
+                    <a href={`mailto:${contact.email}`} className="font-semibold hover:underline">
+                      {contact.email}
                     </a>
                     <div className="text-sm opacity-80">L'équipe commerciale MIH</div>
                   </div>
@@ -975,12 +814,8 @@ function Contact() {
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-wider opacity-70">Adresse</div>
-                    <div className="font-semibold">
-                      Tony Comiti Media — MIH Mon Incroyable Histoire
-                    </div>
-                    <div className="text-sm opacity-80">
-                      69 avenue Pierre Grenier, 92100 Boulogne Billancourt
-                    </div>
+                    <div className="font-semibold">{contact.addressName}</div>
+                    <div className="text-sm opacity-80">{contact.addressLine}</div>
                   </div>
                 </div>
               </div>
@@ -990,51 +825,30 @@ function Contact() {
               <div className="text-xs font-bold uppercase tracking-widest opacity-80">
                 Nos réseaux sociaux
               </div>
-              {[
-                {
-                  icon: Youtube,
-                  name: "YouTube",
-                  handle: "Playlist MIH",
-                  href: YOUTUBE_PLAYLIST_URL,
-                },
-                {
-                  icon: Music2,
-                  name: "TikTok",
-                  handle: "@monincroyablehistoire",
-                  href: "https://www.tiktok.com/@monincroyablehistoire",
-                },
-                {
-                  icon: Instagram,
-                  name: "Instagram",
-                  handle: "@monincroyablehistoire_mih",
-                  href: "https://www.instagram.com/monincroyablehistoire_mih/",
-                },
-                {
-                  icon: Headphones,
-                  name: "Spotify",
-                  handle: "Podcast Mon Incroyable Histoire",
-                  href: "https://open.spotify.com/search/Mon%20Incroyable%20Histoire",
-                },
-              ].map((s, i) => (
-                <a
-                  key={i}
-                  href={s.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-between rounded-2xl border border-white/15 bg-white/5 p-5 transition hover:-translate-y-0.5 hover:bg-white/10"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="grid size-11 place-items-center rounded-xl bg-white/15">
-                      <s.icon className="size-5" />
+              {contact.socials.map((s) => {
+                const presentation = SOCIAL_PRESENTATION[s.id];
+                const href = s.id === "youtube" ? links.youtubePlaylistUrl : s.href;
+                return (
+                  <a
+                    key={s.id}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-between rounded-2xl border border-white/15 bg-white/5 p-5 transition hover:-translate-y-0.5 hover:bg-white/10"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="grid size-11 place-items-center rounded-xl bg-white/15">
+                        <presentation.icon className="size-5" />
+                      </div>
+                      <div>
+                        <div className="font-semibold">{presentation.name}</div>
+                        <div className="text-sm opacity-80">{s.handle}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-semibold">{s.name}</div>
-                      <div className="text-sm opacity-80">{s.handle}</div>
-                    </div>
-                  </div>
-                  <ArrowRight className="size-4 opacity-70" />
-                </a>
-              ))}
+                    <ArrowRight className="size-4 opacity-70" />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

@@ -1,0 +1,235 @@
+backend:
+  name: github
+  repo: haziducoin/mih-media-kit
+  branch: main
+  base_url: https://partenaires.monincroyablehistoire.com
+  auth_endpoint: api/auth
+
+media_folder: "public/media/uploads"
+public_folder: "/media/uploads"
+
+locale: fr
+logo_url: "/media/mih-logo.jpeg"
+site_url: "https://partenaires.monincroyablehistoire.com"
+
+collections:
+  - name: "media_kit"
+    label: "Kit Média"
+    description: "Le contenu de la page https://partenaires.monincroyablehistoire.com — chaque modification publiée est mise en ligne automatiquement en 1 à 2 minutes."
+    files:
+      - name: "page"
+        label: "Page du Kit Média"
+        file: "src/content/media-kit.json"
+        fields:
+          - label: "Liens généraux"
+            name: "links"
+            widget: "object"
+            summary: "Playlist YouTube & prise de rendez-vous"
+            fields:
+              - { label: "Lien playlist YouTube", name: "youtubePlaylistUrl", widget: "string" }
+              - { label: "Lien de prise de rendez-vous (Cal.com)", name: "calendarUrl", widget: "string" }
+
+          - label: "1. Accueil (Hero)"
+            name: "hero"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Image de fond"
+                name: "image"
+                widget: "image"
+              - label: "Les 4 chiffres clés en haut de page"
+                name: "stats"
+                widget: "list"
+                summary: "{{fields.value}} — {{fields.label}}"
+                fields:
+                  - { label: "Chiffre", name: "value", widget: "string" }
+                  - { label: "Légende", name: "label", widget: "string" }
+
+          - label: "2. Le Propos"
+            name: "propos"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Titre (une ligne par phrase)"
+                name: "titleLines"
+                widget: "list"
+                field: { label: "Ligne", name: "line", widget: "string" }
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraphe", name: "paragraph", widget: "text" }
+
+          - label: "3. Le Concept"
+            name: "concept"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Titre de la section", name: "heading", widget: "string" }
+              - label: "Les 4 points clés"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Point", name: "bullet", widget: "string" }
+              - label: "Vidéos YouTube mises en avant"
+                name: "videos"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - label: "Identifiant de la vidéo YouTube"
+                    name: "youtubeId"
+                    widget: "string"
+                    hint: "La partie après 'v=' ou après 'youtu.be/' dans le lien YouTube. Sert aussi à récupérer automatiquement la miniature."
+                  - { label: "Lien complet de la vidéo", name: "url", widget: "string" }
+                  - { label: "Titre affiché", name: "title", widget: "string" }
+                  - { label: "Nombre de vues affiché", name: "views", widget: "string" }
+
+          - label: "4. Performances"
+            name: "performances"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Titre de la section", name: "heading", widget: "string" }
+              - label: "Le très gros chiffre (ex. 8M)"
+                name: "bigStat"
+                widget: "object"
+                fields:
+                  - { label: "Chiffre", name: "value", widget: "string" }
+                  - { label: "Légende", name: "label", widget: "string" }
+              - label: "Comparatif MIH vs marché"
+                name: "comparison"
+                widget: "list"
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Nom de l'indicateur", name: "label", widget: "string" }
+                  - { label: "Valeur MIH (%)", name: "mih", widget: "number", value_type: "float" }
+                  - { label: "Valeur marché (%)", name: "market", widget: "number", value_type: "float" }
+              - label: "Note en petit sous le comparatif"
+                name: "comparisonNote"
+                widget: "text"
+              - label: "Répartition du public (camembert)"
+                name: "audienceSplit"
+                widget: "list"
+                summary: "{{fields.name}} — {{fields.value}}%"
+                fields:
+                  - { label: "Catégorie", name: "name", widget: "string" }
+                  - { label: "Pourcentage", name: "value", widget: "number", value_type: "int" }
+
+          - label: "5. Notre Audience (avis)"
+            name: "audience"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Titre de la section", name: "heading", widget: "string" }
+              - label: "Commentaires mis en avant"
+                name: "comments"
+                widget: "list"
+                summary: "{{fields.handle}}"
+                fields:
+                  - { label: "Pseudo", name: "handle", widget: "string" }
+                  - { label: "Ancienneté (ex. il y a 7 mois)", name: "time", widget: "string" }
+                  - { label: "Nombre de j'aime", name: "likes", widget: "string" }
+                  - { label: "Épisode concerné", name: "episode", widget: "string" }
+                  - { label: "Photo de profil", name: "avatar", widget: "image" }
+                  - { label: "Texte du commentaire", name: "text", widget: "text" }
+
+          - label: "6. Acquisition & Viralité (plateformes)"
+            name: "acquisition"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Titre de la section", name: "heading", widget: "string" }
+              - label: "Phrase de conclusion en bas de section"
+                name: "note"
+                widget: "text"
+              - label: "Chiffres par plateforme"
+                name: "platforms"
+                widget: "list"
+                summary: "{{fields.id}} — {{fields.handle}}"
+                fields:
+                  - label: "Plateforme"
+                    name: "id"
+                    widget: "select"
+                    options: ["tiktok", "spotify", "instagram"]
+                    hint: "Détermine le logo et la couleur — ne pas modifier sans en parler au développeur."
+                  - { label: "Nom / pseudo du compte", name: "handle", widget: "string" }
+                  - label: "Chiffres affichés sur la carte"
+                    name: "stats"
+                    widget: "list"
+                    summary: "{{fields.value}} — {{fields.label}}"
+                    fields:
+                      - { label: "Chiffre", name: "value", widget: "string" }
+                      - { label: "Légende", name: "label", widget: "string" }
+
+          - label: "7. Notre expertise"
+            name: "expertise"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Titre de la section", name: "heading", widget: "string" }
+              - { label: "Phrase mise en avant (en gras)", name: "highlight", widget: "string" }
+              - label: "Paragraphes"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraphe", name: "paragraph", widget: "text" }
+              - label: "Logos des diffuseurs"
+                name: "broadcasters"
+                widget: "list"
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: "Nom de la chaîne", name: "name", widget: "string" }
+                  - { label: "Logo (fichier image)", name: "logo", widget: "image" }
+
+          - label: "8. Offres & Tarifs"
+            name: "offers"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.price}} {{fields.unit}}"
+            fields:
+              - { label: "Numéro (ex. 01)", name: "num", widget: "string" }
+              - { label: "Titre de l'offre", name: "title", widget: "string" }
+              - { label: "Prix (ex. 4 000 ou Sur devis)", name: "price", widget: "string" }
+              - { label: "Unité (ex. €, laisser vide si 'Sur devis')", name: "unit", widget: "string", required: false }
+              - { label: "Description courte", name: "desc", widget: "text" }
+              - { label: "Exemple / phrase d'illustration", name: "example", widget: "text" }
+              - label: "Détails (durée, placement...)"
+                name: "meta"
+                widget: "list"
+                field: { label: "Détail", name: "item", widget: "string" }
+              - label: "Mettre en avant comme offre recommandée ?"
+                name: "highlight"
+                widget: "boolean"
+                default: false
+
+          - label: "9. Reels Instagram"
+            name: "reels"
+            widget: "list"
+            summary: "{{fields.views}} vues"
+            fields:
+              - { label: "Lien Instagram du reel", name: "url", widget: "string" }
+              - { label: "Fichier vidéo", name: "video", widget: "file" }
+              - { label: "Nombre de vues affiché", name: "views", widget: "string" }
+
+          - label: "10. Contact"
+            name: "contact"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Titre de la section", name: "heading", widget: "string" }
+              - { label: "Phrase d'introduction", name: "paragraph", widget: "text" }
+              - { label: "Adresse email commerciale", name: "email", widget: "string" }
+              - { label: "Nom de la société", name: "addressName", widget: "string" }
+              - { label: "Adresse postale", name: "addressLine", widget: "string" }
+              - label: "Réseaux sociaux"
+                name: "socials"
+                widget: "list"
+                summary: "{{fields.id}} — {{fields.handle}}"
+                fields:
+                  - label: "Réseau"
+                    name: "id"
+                    widget: "select"
+                    options: ["youtube", "tiktok", "instagram", "spotify"]
+                    hint: "Détermine l'icône affichée — ne pas modifier sans en parler au développeur."
+                  - { label: "Nom / pseudo affiché", name: "handle", widget: "string" }
+                  - label: "Lien du compte"
+                    name: "href"
+                    widget: "string"
+                    required: false
+                    hint: "Laisser vide pour YouTube : le lien playlist ci-dessus est utilisé automatiquement."
