@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PartenairesRouteImport } from './routes/partenaires'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminConfigDotymlRouteImport } from './routes/admin/config[.]yml'
 
 const PartenairesRoute = PartenairesRouteImport.update({
   id: '/partenaires',
@@ -22,31 +24,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminConfigDotymlRoute = AdminConfigDotymlRouteImport.update({
+  id: '/admin/config.yml',
+  path: '/admin/config.yml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/partenaires': typeof PartenairesRoute
+  '/admin/config.yml': typeof AdminConfigDotymlRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/partenaires': typeof PartenairesRoute
+  '/admin/config.yml': typeof AdminConfigDotymlRoute
+  '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/partenaires': typeof PartenairesRoute
+  '/admin/config.yml': typeof AdminConfigDotymlRoute
+  '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/partenaires'
+  fullPaths: '/' | '/partenaires' | '/admin/config.yml' | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/partenaires'
-  id: '__root__' | '/' | '/partenaires'
+  to: '/' | '/partenaires' | '/admin/config.yml' | '/admin'
+  id: '__root__' | '/' | '/partenaires' | '/admin/config.yml' | '/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PartenairesRoute: typeof PartenairesRoute
+  AdminConfigDotymlRoute: typeof AdminConfigDotymlRoute
+  AdminIndexRoute: typeof AdminIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +85,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/config.yml': {
+      id: '/admin/config.yml'
+      path: '/admin/config.yml'
+      fullPath: '/admin/config.yml'
+      preLoaderRoute: typeof AdminConfigDotymlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PartenairesRoute: PartenairesRoute,
+  AdminConfigDotymlRoute: AdminConfigDotymlRoute,
+  AdminIndexRoute: AdminIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

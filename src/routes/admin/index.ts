@@ -1,4 +1,6 @@
-<!doctype html>
+import { createFileRoute } from "@tanstack/react-router";
+
+const ADMIN_HTML = `<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
@@ -10,3 +12,16 @@
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
   </body>
 </html>
+`;
+
+export const Route = createFileRoute("/admin/")({
+  server: {
+    handlers: {
+      GET: async () => {
+        return new Response(ADMIN_HTML, {
+          headers: { "content-type": "text/html; charset=utf-8" },
+        });
+      },
+    },
+  },
+});
