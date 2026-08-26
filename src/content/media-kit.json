@@ -6,10 +6,10 @@
   "hero": {
     "image": "/media/mih-hero-cover.png",
     "stats": [
-      { "value": "100K", "label": "abonnés" },
-      { "value": "105K", "label": "vues / épisode" },
+      { "value": "115K", "label": "abonnés" },
+      { "value": "130K", "label": "vues / épisode" },
       { "value": "35%", "label": "taux de rétention" },
-      { "value": "40", "label": "épisodes" }
+      { "value": "61", "label": "épisodes" }
     ]
   },
   "propos": {
@@ -32,13 +32,13 @@
         "youtubeId": "v99hxmVdiZE",
         "url": "https://www.youtube.com/watch?v=v99hxmVdiZE&list=PLyzqvdCqSk_lwjj3ZDqUhZr5faSfnjbE6&index=1",
         "title": "Pablo Escobar / Tony Comiti : les secrets d'une interview choc",
-        "views": "671K vues"
+        "views": "777K vues"
       },
       {
         "youtubeId": "AaD_a0vDbLc",
         "url": "https://www.youtube.com/watch?v=AaD_a0vDbLc&list=PLyzqvdCqSk_lwjj3ZDqUhZr5faSfnjbE6&index=2",
         "title": "J'ai été séquestrée et torturée par mes deux meilleures amies",
-        "views": "463K vues"
+        "views": "504K vues"
       },
       {
         "youtubeId": "XLBSqOR7bzA",
@@ -109,14 +109,14 @@
   },
   "acquisition": {
     "heading": "MIH sur toutes les plateformes.",
-    "note": "Les shorts/reels renforcent la marque et renvoient vers les formats longs de YouTube.",
+    "note": "Les extraits courts créent de la découverte, puis renvoient vers YouTube / Spotify / Apple Podcast.",
     "platforms": [
       {
         "id": "tiktok",
         "handle": "@monincroyablehistoire",
         "stats": [
-          { "value": "210K", "label": "Abonnés" },
-          { "value": "3,9M", "label": "Likes" },
+          { "value": "225K", "label": "Abonnés" },
+          { "value": "4,1M", "label": "Likes" },
           { "value": "2M+", "label": "Vues / extrait" },
           { "value": "5-7%", "label": "Taux d'engagement" }
         ]
@@ -130,8 +130,8 @@
         "id": "instagram",
         "handle": "@monincroyablehistoire_mih",
         "stats": [
-          { "value": "9K", "label": "Abonnés" },
-          { "value": "800K", "label": "Vues sur les Reels" }
+          { "value": "13,8K", "label": "Abonnés" },
+          { "value": "3M", "label": "Vues sur les Reels" }
         ]
       }
     ]
