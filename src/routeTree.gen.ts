@@ -11,8 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PartenairesRouteImport } from './routes/partenaires'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ApiCallbackRouteImport } from './routes/api/callback'
-import { Route as ApiAuthRouteImport } from './routes/api/auth'
 
 const PartenairesRoute = PartenairesRouteImport.update({
   id: '/partenaires',
@@ -24,49 +22,31 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiCallbackRoute = ApiCallbackRouteImport.update({
-  id: '/api/callback',
-  path: '/api/callback',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiAuthRoute = ApiAuthRouteImport.update({
-  id: '/api/auth',
-  path: '/api/auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/partenaires': typeof PartenairesRoute
-  '/api/auth': typeof ApiAuthRoute
-  '/api/callback': typeof ApiCallbackRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/partenaires': typeof PartenairesRoute
-  '/api/auth': typeof ApiAuthRoute
-  '/api/callback': typeof ApiCallbackRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/partenaires': typeof PartenairesRoute
-  '/api/auth': typeof ApiAuthRoute
-  '/api/callback': typeof ApiCallbackRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/partenaires' | '/api/auth' | '/api/callback'
+  fullPaths: '/' | '/partenaires'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/partenaires' | '/api/auth' | '/api/callback'
-  id: '__root__' | '/' | '/partenaires' | '/api/auth' | '/api/callback'
+  to: '/' | '/partenaires'
+  id: '__root__' | '/' | '/partenaires'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PartenairesRoute: typeof PartenairesRoute
-  ApiAuthRoute: typeof ApiAuthRoute
-  ApiCallbackRoute: typeof ApiCallbackRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -85,28 +65,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/callback': {
-      id: '/api/callback'
-      path: '/api/callback'
-      fullPath: '/api/callback'
-      preLoaderRoute: typeof ApiCallbackRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/auth': {
-      id: '/api/auth'
-      path: '/api/auth'
-      fullPath: '/api/auth'
-      preLoaderRoute: typeof ApiAuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PartenairesRoute: PartenairesRoute,
-  ApiAuthRoute: ApiAuthRoute,
-  ApiCallbackRoute: ApiCallbackRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

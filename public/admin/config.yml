@@ -2,8 +2,6 @@ backend:
   name: github
   repo: haziducoin/mih-media-kit
   branch: main
-  base_url: https://partenaires.monincroyablehistoire.com
-  auth_endpoint: api/auth
 
 media_folder: "public/media/uploads"
 public_folder: "/media/uploads"
